@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors</title>
+</head>
+
+<style>
+    /* Decendent Selector */
+     p a {
+        color: red;
+     }
+
+     li a {
+        color: orange;
+     }
+
+     /* Parent Child Selector */
+
+     article > p {
+        color: red;
+     }
+
+     aside p > strong {
+        color: blue;
+     }
+
+     /* Adjacent and General Sibling Selectors */
+
+    h1 + p {
+        color: red;
+    }
+
+    h1 ~ p {
+        color: green;
+    }
+
+    aside + p {
+        color: dodgerblue;
+    }
+
+
+</style>
+
+<body>
+    <!-- Combinator Selectors -->
+        <!-- children, ancestor, descendant and sibilings --> 
+    <section>
+        <h1>A heading</h1>
+        <p>A paragraph of stuff</p>
+        <p>A second paragraph <a href="#">with a link</a></p>
+    </section>
+
+    <aside>
+        <h2>An aside</h2>
+        <ul>
+            <li>An <a href="#">important</a> list item</li>
+            <li>Another list item</li>
+        </ul>
+    </aside>
+
+    <!-- Parent Child Selectors -->
+
+    <article>
+        <h1>Parent-Child Selectors</h1>
+        <p>Select the paragraphs in the article, not in the aside.</p>
+        <aside>
+          <h2>An aside in an article</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing elit</strong>. Voluptates dolor veniam mollitia quod ratione dolore voluptas odio eos <em><strong>nesciunt consequuntur</strong></em>.</p>
+        </aside>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa repudiandae <strong>placeat eaque nobis</strong> consectetur. Atque cumque provident iure blanditiis esse.</p>
+    </article>
+
+    <!-- Adjacent and General Sibling Selectors -->
+
+    <article>
+        <h1>Adjacent and General Sibling Selectors</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam laboriosam odio ad id quos esse autem unde consequuntur perspiciatis sunt?</p>
+        <aside>
+          <h2>An aside in an article</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing elit</strong>. Voluptates dolor veniam mollitia quod ratione dolore voluptas odio eos <em><strong>nesciunt consequuntur</strong></em>.</p>
+        </aside>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa repudiandae <strong>placeat eaque nobis</strong> consectetur. Atque cumque provident iure blanditiis esse.</p>
+    </article>
+
+</body>
+</html>
