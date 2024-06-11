@@ -1,33 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Attribute Selectors</title>
 
     <style>
-
         /* Attribute Selector */
         [title] {
             border: 1px solid gray;
         }
+
         a[title] {
             border: 1px solid gray;
         }
 
 
         /* Exact and Partial Attribute Selectors */
-            /* Exact */
+        /* Exact */
         [title='first'] {
             color: greenyellow;
         }
+
         [title='fifth'] {
             color: rosybrown;
         }
-            /* Partial */
-        [title~= 'first'] {
+
+        /* Partial */
+        [title~='first'] {
             color: aqua;
         }
+
         [title~='fifth'] {
             color: chocolate;
         }
@@ -39,7 +43,7 @@
             color: red;
         }
 
-        /* Ending with */ 
+        /* Ending with */
         [title$='th'] {
             border: 1px solid blue;
         }
@@ -58,15 +62,17 @@
         a[href*='http']::after {
             content: ' (PDF)';
         }
-
     </style>
 
 </head>
+
 <body>
     <!-- Attribute Selectors -->
     <a name="top"></a>
-    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam aliquam hic velit, incidunt optio ratione itaque eos quo perspiciatis! Excepturi?</p>
-    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nostrum doloremque laudantium quibusdam architecto eaque ex modi totam autem blanditiis?</p>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ipsam aliquam hic velit, incidunt optio ratione itaque
+        eos quo perspiciatis! Excepturi?</p>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam nostrum doloremque laudantium quibusdam
+        architecto eaque ex modi totam autem blanditiis?</p>
     <p><a href="http://www.linkedin.com">Visit LinkedIn</a></p>
 
     <a href="#top" title="back to top">to top</a>
@@ -79,13 +85,14 @@
         <li title="fourth">Fourth or Forth?</li>
         <li title="fifth">Fifth: last place</li>
     </ul>
-      
+
     <!-- use https://upload.wikimedia.org/wikipedia/commons/6/64/Icon_External_Link.png 
     It is a 12px x 12px icon
     -->
     <p><a href="https://www.google.com" target="_blank">I go to Google</a></p>
 
     <p><a href="https://www.linkedin.com" target="_blank">I am a secure link to LinkedIn</a></p>
-      
+
 </body>
-</html> 
+
+</html>
