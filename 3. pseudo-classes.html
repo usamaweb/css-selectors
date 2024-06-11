@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pseudo Classes for document structure</title>
+
+    <style>
+        /* root is basically the root of an HTMl document. It is most commonly used for CSS custom properties/variables */
+        :root {--standard-size: 1rem;}
+        body { font-family: Arial, Helvetica, sans-serif; }
+        .container { display: grid; grid-template-columns: repeat(3, 1fr); grid-gap: 1rem; max-width: 900px; margin: 0 auto; }
+        .cell { background-color: tomato; color: white; padding: 1rem; border-radius: 0.5rem; }
+
+        /* :empty is used to select the element which is empty, it means there is nothing in it. Not even whitespace. */
+        div:empty {
+            background-color: yellow;
+        }
+
+        /*****************
+        ONLY SELECTORS 
+        *****************/
+        /* only-child is used when the element is the only child of the parent */
+        strong:only-child { color: red; }
+
+        /* only-of-type is used when element is the only child of its type */
+        h2:only-of-type { color: green; }
+
+        /*****************
+        FIRST, LAST CHILD AND FIRST, LAST OF TYPE
+        *****************/
+        /* :first-child is used to select first child in a group of siblings*/
+        li:first-child { border: 2px solid navy; }
+
+        /* :last-child is used to select last child in a group of siblings */
+        li:last-child { border: 2px solid red; }
+
+        /* first element from its type */
+        p:first-of-type { border: 1px solid green; }
+        /* last element from its type */
+        p:last-of-type { border: 1px solid red; }
+
+        /*****************
+        NTH SELECTORS
+        *****************/
+
+        /* nth-child is used to select the even, odd or any element from a group of siblings */
+        li:nth-child(even) { background-color: #d3d3d3; }
+        li:nth-child(odd) { background-color: lightcoral; }
+            /* It simply means that select every 3rd element and start from first element */
+        li:nth-child(2) { background-color: lightgoldenrodyellow; }
+        li:nth-child(3n + 1) { background-color: lightblue; }
+
+        /* nth-last-child just start counting from end */
+        li:nth-last-child(1) { background-color: yellow;}
+
+
+        /* nth of type will select the any element from one type of siblings */
+        li:nth-of-type(5) { background-color: dodgerblue; }
+        /* nth last of type will select any element but it will count from bottom */
+        li:nth-last-of-type(2) { background-color: blueviolet; }
+       
+       
+        /*****************
+        :root & :empty 
+        *****************/
+
+        
+
+
+
+
+
+
+    </style>
+
+</head>
+<body>
+    <article>
+        <h1>The :only Selectors</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam laboriosam odio ad id quos esse autem unde consequuntur perspiciatis sunt?</p>
+        <aside>
+          <h2>An aside in an article</h2>
+          <p>Lorem ipsum dolor sit amet em<strong>consectetur adipisicing elit</strong>. Voluptates dolor veniam mollitia quod ratione dolore voluptas odio eos <em><strong>nesciunt consequuntur</strong></em>.</p>
+        </aside>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa repudiandae <strong>placeat eaque nobis</strong> consectetur. Atque cumque provident iure blanditiis esse.</p>
+    </article>
+
+    <ul>
+        <li title="first">Item First</li>
+        <li title="the first second">Number Two</li>
+        <li title="two from fifth">3 rocks</li>
+        <li title="fourth">Fourth or Forth?</li>
+        <li title="fifth">Fifth: not just for drinking</li>
+    </ul>
+    <article>
+        <h1>The first and last selectors</h1>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam laboriosam odio ad id quos esse autem unde consequuntur perspiciatis sunt?</p>
+        <aside>
+          <h2>An aside in an article</h2>
+          <p>Lorem ipsum dolor sit amet <strong>consectetur adipisicing elit</strong>. Voluptates dolor veniam mollitia quod ratione dolore voluptas odio eos <em><strong>nesciunt consequuntur</strong></em>.</p>
+        </aside>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa repudiandae <strong>placeat eaque nobis</strong> consectetur. Atque cumque provident iure blanditiis esse.</p>
+        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quibusdam laboriosam odio ad id quos esse autem unde consequuntur perspiciatis sunt?</p>
+    </article>
+
+    <ul>
+        <li title="first">Item First</li>
+        <li title="the first second">Number Two</li>
+        <li title="two from fifth">3 rocks</li>
+        <li title="fourth">Fourth or Forth?</li>
+        <li title="fifth">Fifth: not just for drinking</li>
+        <li>Sixth item</li>
+        <li>Seventh item</li>
+        <li>Eighth item</li>
+        <li>Ninth item</li>
+        <li>Tenth item</li>
+    </ul>
+    <div class="container">
+        <div class="cell">Para with plenty of text. Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis accusamus esse natus voluptatem unde porro numquam expedita enim fuga quod?</div>
+        <div class="cell"><!--empty para --></div>
+        <div class="cell"> <!-- not empty para because of whitespace --> </div>
+    </div>
+      
+</body>
+</html>
