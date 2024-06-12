@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic link states -- :link, :visited, :hover, :active</title>
+</head>
+
+<style>
+    /* link pseudo classes */
+    a {
+        color: turquoise;
+        font-weight: bold;
+    }
+
+    a:hover {
+        text-decoration: none;
+    }
+
+    a:visited {
+        color: purple;
+    }
+
+    a:active {
+        color: pink;
+    }
+
+    /* :any-link / it is just visited and univisited combined*/
+
+    a:any-link {
+        color: tomato;
+    }
+
+    /* :target Selector */
+
+    :target {
+        background-color: tomato;
+        color: #fff;
+    }
+
+    /* :focus, :focus-within Selector */
+
+    input:focus {
+        outline: 5px solid red;
+    }
+
+    /* used to appky styles to the container that has focus */
+    form:focus-within {
+        background-color: green;
+    }
+</style>
+
+<body>
+
+    <!-- Link pseudo classes -->
+    <ul>
+        <li><a href="https://www.linkedin.com" target="_blank">Visit LinkedIn</a></li>
+        <li><a href="https://www.microsoft.com" target="_blank">Visit Microsoft</a></li>
+        <li><a href="https://www.google.com" target="_blank">Visit Google</a></li>
+    </ul>
+
+    <!-- :target Selector -->
+    <h3>Table of Contents</h3>
+    <ul>
+        <li><a href="#part1">Part 1</a></li>
+        <li><a href="#part2">Part 2</a></li>
+    </ul>
+
+    <h3>:Target Rocks</h3>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, perferendis facilis! Eum necessitatibus aliquid
+        repellendus autem, hic dolore ex velit!</p>
+    <h4 id="part1">Part 1</h4>
+    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati dolor dolores ut molestias, totam tempore
+        distinctio dolore labore dolorum incidunt qui iste voluptates! Voluptatibus quidem iure, odit consequatur
+        repellendus tempore!</p>
+    <h4 id="part2">Part 2</h4>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui, repellendus temporibus distinctio magni maxime est
+        atque veniam ipsum hic recusandae suscipit, consequatur nobis nostrum eaque velit nam omnis cumque ea.</p>
+
+    <!-- :focus, :focus-within Selector -->
+
+    <ul>
+        <li><a href="https://www.linkedin.com" target="_blank">Visit LinkedIn</a></li>
+        <li><a href="https://www.microsoft.com" target="_blank">Visit Microsoft</a></li>
+        <li><a href="https://www.google.com" target="_blank">Visit Google</a></li>
+    </ul>
+
+    <form>
+        <fieldset>
+            <legend>Your contact information</legend>
+            <div>
+                <label for="name">Your name</label>
+                <input type="text" id="name" autofocus>
+            </div>
+            <div>
+                <label for="phone">Phone number</label>
+                <input type="tel" id="phone">
+            </div>
+            <div>
+                <label for="email">Email</label>
+                <input type="email" id="email">
+            </div>
+            <label>Comments:
+                <textarea id="comments"></textarea>
+            </label>
+            <button type="submit">Submit</button>
+        </fieldset>
+    </form>
+
+
+</body>
+
+</html>
