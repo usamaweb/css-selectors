@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Additional pseudo classes, elements and universal seelctor</title>
+</head>
+
+<style>
+    body {
+        font-family: Arial, Helvetica, sans-serif;
+        line-height: 1.5;
+    }
+
+    .container {
+        margin: 0 auto;
+        display: grid;
+        max-width: 900px;
+        grid-template-columns: repeat(3, 1fr);
+        grid-gap: 1rem;
+    }
+
+    /* Understanding :is(), :where() */
+    /* with this (:is) selector, we can add select multiple elemetns from inside a particular div  */
+    /* the code also dont break if any selector is not present or invalid */
+    /* we can also combine the :is statmetnt */
+    article :is(h1, h2, h3) {
+        background-color: red;
+    }
+
+    :is(article, aside) :is(h1, h2, h3) {
+        border: 10px solid green;
+    }
+
+    /* :where is the almost same selector, but the only difference is specificity */
+    /* where does not count in the specificity calculation */
+    /* we can select the default styles using :where() with low specifity, So, we can change style after */
+    :is(section) :where(p) {
+        background-color: red;
+    }
+
+    /* :not() selector is used to NOT select or exclude the element that meets specifc criteria*/
+    img:not([alt]) {
+        border: 5px solid red;
+    }
+
+    p:not(.notdemo) {
+        /* background-color: red; */
+    }
+
+    /* :has selector is used to find patterns in code and style accordingly */
+    /* in this example we can check if the ul has atleast 5 child elements and can apply styles accordingly to ul */
+    ul:has(li:nth-child(5)) {
+        columns: 2;
+    }
+
+    /* ::after, ::before, ::first-letter, ::first-line, pseudo elements*/
+
+    p:first-of-type::first-line {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 3.2rem;
+        color: brown;
+    }
+
+    p:first-of-type::first-letter {
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-size: 3.2rem;
+        color: tomato;
+    }
+
+    [href*='.pdf']::after {
+        content: ' (PDF)';
+    }
+
+    [href*='.pdf']::before {
+        content: '(DOWNLOAD) ';
+    }
+
+    /* * universal selector */
+
+    .container * {
+        background-color: red;
+    }
+</style>
+
+<body>
+
+    <!-- Understanding :is() and :where() -->
+    <h1>Understanding <code>:is()</code> and <code>:where()</code></h1>
+    <article>
+        <h2>H2 in an article</h2>
+        <p class="intro">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sit?</p>
+        <h3>H3 in an article</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sit?</p>
+    </article>
+    <section>
+        <h2>H2 in a section </h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, reprehenderit.</p>
+        <h3>H3 in a section</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sit?</p>
+    </section>
+    <aside>
+        <h2>H2 in an aside </h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quae, reprehenderit.</p>
+        <h3>H3 in an aside</h3>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius, sit?</p>
+    </aside>
+
+    <!-- Understanding :not() selector -->
+    <img src="https://picsum.photos/300/200">
+
+    <img src="https://picsum.photos/300/201" alt="random image">
+
+    <p class="notdemo">This paragraph has a class of notdemo.</p>
+    <p class="notdemo">This paragraph has a class of notdemo.</p>
+    <p>This paragraph does not have a class of notdemo.</p>
+    <p class="notdemo">This paragraph has a class of notdemo.</p>
+
+    <!-- :has -->
+
+    <h1>(Some) Massachusetts Museums and Historic Sites</h1>
+    <ul>
+        <li>Adams National Historic Park</li>
+        <li>American Heritage Museum</li>
+        <li>Boston Tea Party Ships and Museum</li>
+        <li>Charles River Museum of Industry and Innovation</li>
+        <li>Freedom Trail</li>
+        <li>John F. Kennedy Presidential Library and Museum</li>
+        <li>Mary Baker Eddy Library</li>
+        <li>Mass Audubon Blue Hills Trailside Museum</li>
+        <li>Mass Audubon Moose Hill Wildlife Sanctuary</li>
+        <li>Museum of African American History</li>
+        <li>Museum of American Bird Art at Mass Audubon</li>
+        <li>Old South Meeting House</li>
+        <li>Old State House</li>
+        <li>Paul Revere House</li>
+        <li>The Plumbing Museum</li>
+        <li>Quincy Homestead</li>
+        <li>USS Constitution</li>
+    </ul>
+
+    <!-- ::after, ::before, ::first-line, ::first-letter -->
+    <h2>A Web Page</h2>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim debitis quis possimus minus porro repellendus
+        doloremque,<a href="http://www.linkedin.com">assumenda id veritatis</a> nam eos? Labore, iusto dicta? Aliquam
+        enim dolore quia non! Explicabo inventore esse dolor et, sapiente obcaecati quod, dolorem deserunt atque quasi
+        magnam! Nesciunt sapiente eius quos voluptatem qui! Sit saepe repellendus natus vero libero, qui nisi
+        necessitatibus hic sequi architecto.</p>
+    <p><a href="file.pdf" target="_blank">Read more</a></p>
+
+    <!-- * universal selector -->
+    <div class="container">
+        <div>
+            <h2>A Web Page</h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Enim debitis quis possimus minus porro
+                repellendus doloremque,<a href="http://www.linkedin.com">assumenda id veritatis</a> nam eos? Labore,
+                iusto dicta? Aliquam enim dolore quia non! Explicabo
+                inventore esse dolor et, sapiente obcaecati quod, dolorem deserunt atque quasi magnam! Nesciunt sapiente
+                eius quos voluptatem qui! Sit saepe repellendus natus vero libero, qui nisi necessitatibus hic sequi
+                architecto.</p>
+            <p><a href="file.pdf" target="_blank">Read more</a></p>
+        </div>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis accusamus esse natus voluptatem unde
+            porro numquam expedita enim fuga quod?</p>
+        <p><img src="https://picsum.photos/200/300" alt="cute kitties"></p>
+    </div>
+</body>
+
+</html>
